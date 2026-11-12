@@ -44,11 +44,10 @@ def insert_row(run_time, price):
     body = json.dumps(row).encode("utf-8")
 
     headers = {
-        "apikey": config.SUPABASE_KEY,
-        "Authorization": "Bearer " + config.SUPABASE_KEY,
-        "Content-Type": "application/json",
-        "Prefer": "return=minimal",
-    }
+    "apikey": config.SUPABASE_KEY,
+    "Content-Type": "application/json",
+    "Prefer": "return=minimal",
+}
 
     request = urllib.request.Request(url, data=body, headers=headers, method="POST")
     with urllib.request.urlopen(request, timeout=config.HTTP_TIMEOUT) as response:
